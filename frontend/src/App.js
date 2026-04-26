@@ -46,7 +46,7 @@ export default function App() {
   const [messaggio, setMessaggio] = useState('');
 
   function caricaSegnalazioni() {
-    fetch('http://localhost:3000/segnalazioni')
+    fetch('https://spaccio-alert-production.up.railway.app')
       .then(function(r) { return r.json(); })
       .then(setSegnalazioni)
       .catch(console.error);
@@ -59,7 +59,7 @@ export default function App() {
   }, []);
 
   function inviaSegnalazione(lat, lng, categoria) {
-    fetch('http://localhost:3000/segnalazioni', {
+    fetch('https://spaccio-alert-production.up.railway.app', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ latitudine: lat, longitudine: lng, categoria: categoria, descrizione: '' }),
